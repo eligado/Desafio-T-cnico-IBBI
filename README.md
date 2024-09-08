@@ -13,7 +13,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de
      - **Excluir:** Remove o usuário da lista.
 
 2. **Cadastro de Usuários:**
-   - Um formulário para adicionar novos usuários ou editar os existentes.
+   - Um formulário para adicionar novos usuários.
    - Campos:
      - Nome (até 150 caracteres)
      - E-mail (até 20 caracteres)
