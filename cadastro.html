@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/favicon.ico?v=1" type="image/x-icon">
+  <title>Cadastro de Usuários</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="corpo">
+  <div class="container">
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <h1 class="titulo">Cadastro de Usuários</h1>
+    <form id="formUsuario" class="formulario-usuario">
+      <div class="campo">
+        <label for="nome" class="rotulo">Nome do Usuário</label>
+        <input type="text" id="nome" class="entrada-texto" maxlength="150" required>
+      </div>
+      <div class="campo">
+        <label for="email" class="rotulo">E-mail do Usuário</label>
+        <input type="text" id="email" class="entrada-texto" maxlength="20" required>
+      </div>
+      <div class="campo">
+        <label for="senha" class="rotulo">Senha</label>
+        <input type="password" id="senha" class="entrada-senha" maxlength="8" required>
+      </div>
+      <div class="campo">
+        <label for="status" class="rotulo">Status do Usuário</label>
+        <select id="status" class="entrada-select" required>
+          <option value="Ativo">Ativo</option>
+          <option value="Excluído">Excluído</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-salvar">Salvar</button>
+    </form>
+  </div>
+
+  <!-- Modal de sucesso -->
+  <div id="modalSucesso" class="modal">
+    <div class="modal-conteudo">
+      <p>Usuário salvo com sucesso!</p>
+      <button id="btnOk">OK</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

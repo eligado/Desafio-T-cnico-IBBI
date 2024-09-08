@@ -1,52 +1,39 @@
 // Função para salvar o usuário no localStorage
 function salvarUsuario(event) {
-  event.preventDefault(); // Evita o envio do formulário
+	event.preventDefault(); // Evita o envio do formulário
 
-  // Obtendo os valores do formulário
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
-  const status = document.getElementById('status').value;
+	const nome = document.getElementById("nome").value;
+	const email = document.getElementById("email").value;
+	const senha = document.getElementById("senha").value;
+	const status = document.getElementById("status").value;
 
-  // Criando um objeto com os dados
-  const usuario = {
-    nome,
-    email,
-    senha,
-    status
-  };
+	if (!nome || !email || !senha || !status) {
+		alert("Por favor, preencha todos os campos.");
+		return;
+	}
 
-  // Salvando os dados no localStorage (converte para string JSON)
-  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-  usuarios.push(usuario);
-  localStorage.setItem('usuarios', JSON.stringify(usuarios));
+	const usuario = { nome, email, senha, status };
+	const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+	usuarios.push(usuario);
+	localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-  // Mostrando o modal em vez do alert
-  const modal = document.getElementById('modalSucesso');
-  modal.style.display = 'block';
-  
-  // Fechar o modal ao clicar no botão "OK"
-  const btnOk = document.getElementById('btnOk');
-  btnOk.onclick = function() {
-    modal.style.display = 'none';
-    window.location.href = 'index.html'; // Redireciona para index.html
-  };
-  
-  // Fechar o modal ao clicar no 'X'
-  const spanClose = document.getElementsByClassName('close')[0];
-  spanClose.onclick = function() {
-    modal.style.display = 'none';
-    window.location.href = 'index.html'; // Redireciona para index.html
-  };
+	// Mostra o modal de sucesso
+	const modal = document.getElementById("modalSucesso");
+	modal.style.display = "block";
 
-  // Fechar o modal se o usuário clicar fora dele
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-      window.location.href = 'index.html'; // Redireciona para index.html
-    }
-  };
+	// Fechar o modal e redirecionar
+	document.getElementById("btnOk").onclick = function () {
+		modal.style.display = "none";
+		window.location.href = "index.html";
+	};
 }
+
+// Associar a função ao envio do formulário
+document.addEventListener("DOMContentLoaded", function () {
+	document
+		.getElementById("formUsuario")
+		.addEventListener("submit", salvarUsuario);
+});
 
 // Função para carregar os usuários do localStorage e exibir no index.html
 function carregarUsuarios() {
